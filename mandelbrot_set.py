@@ -48,7 +48,7 @@ def mandelbrot_set_animation(density: int):
 
     def animate(i):
         matrix = np.empty((density, density))
-        threshold = round(1.023**(i + 1))
+        threshold = i + 1
 
         for row in range(density):
             for col in range(density):
@@ -59,7 +59,6 @@ def mandelbrot_set_animation(density: int):
 
         return [image]
 
-    figure_animation = animation.FuncAnimation(fig, animate, frames=270, interval=20, blit=True)
+    figure_animation = animation.FuncAnimation(fig, animate, frames=120, interval=40, blit=True)
     file_name = "mandelbrot_set.gif"
     figure_animation.save(file_name, writer="imagemagick")
-    
